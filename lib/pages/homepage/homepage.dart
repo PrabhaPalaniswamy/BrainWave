@@ -1,7 +1,6 @@
 import 'package:brainwave/pages/homepage/homepage_desktop.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-//import 'package:profinix_app/website/pages/homepage/home_tablet.dart';
 
 class HomePage extends GetResponsiveView {
   final ScrollController _scrollController = ScrollController();
@@ -35,29 +34,32 @@ class HomePage extends GetResponsiveView {
     }
   }
 
-  void onNavItemTap(int index) {
-    if (index == 0) {
-      scrollToContact();
-    } else if (index == 1) {
-      scrollToFeatures();
-    } else if (index == 2) {
-      scrollToHome();
-    }
-  }
-
   @override
-  Widget desktop() => HomePageDesktop(
-        scrollController: _scrollController,
-        contactKey: _contactKey,
-        featureskey: _featuresKey,
-        homekey: _homeKey,
-        scrollToContact: scrollToContact,
-        scrollToFeatures: scrollToFeatures,
-        scrollToHome: scrollToHome,
-        //onNavItemTap: onNavItemTap,
-      );
+  Widget desktop() {
+    return Stack(
+      children: [
+        HomePageDesktop(
+          scrollController: _scrollController,
+          contactKey: _contactKey,
+          featureskey: _featuresKey,
+          homekey: _homeKey,
+          scrollToContact: scrollToContact,
+          scrollToFeatures: scrollToFeatures,
+          scrollToHome: scrollToHome,
+        ),
+        Positioned(
+          bottom: 20,
+          right: 20,
+          child: FloatingActionButton(
+            onPressed: scrollToHome,
+            backgroundColor: Colors.grey, // Customize your button color
+            child: Icon(Icons.arrow_upward),
+          ),
+        ),
+      ],
+    );
+  }
 }
-
 
 
 

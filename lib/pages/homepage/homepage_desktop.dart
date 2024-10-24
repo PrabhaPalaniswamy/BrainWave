@@ -1,7 +1,9 @@
 import 'package:brainwave/pages/afterfaq/afterfaq.dart';
 import 'package:brainwave/pages/afterfeatures/afterfeatures_desktop.dart';
+import 'package:brainwave/pages/blog/blog_desktop.dart';
 import 'package:brainwave/pages/faq/faq_desktop.dart';
 import 'package:brainwave/pages/features/features_desktop.dart';
+import 'package:brainwave/pages/footer/footer_desktop.dart';
 import 'package:brainwave/pages/frontpage/frontpage_desktop.dart';
 import 'package:brainwave/pages/hackations/hackations.dart';
 import 'package:brainwave/pages/hackations/hackations_desktop.dart';
@@ -76,6 +78,9 @@ class HomePageDesktop extends StatelessWidget {
                       FAQDesktop(),
                       const SizedBox(height: 50),
                       AfterFaqDesktop(),
+                      BlogDesktop(),
+                      const SizedBox(height: 50),
+                      const FooterDesktop(),
                     ],
                   ),
                 ),

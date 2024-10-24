@@ -1,3 +1,4 @@
+import 'package:brainwave/pages/afterfaq/afterfaq.dart';
 import 'package:brainwave/pages/afterfeatures/afterfeatures_desktop.dart';
 import 'package:brainwave/pages/faq/faq_desktop.dart';
 import 'package:brainwave/pages/features/features_desktop.dart';
@@ -6,6 +7,7 @@ import 'package:brainwave/pages/hackations/hackations.dart';
 import 'package:brainwave/pages/hackations/hackations_desktop.dart';
 import 'package:brainwave/pages/navbar/desktop_navbar.dart';
 import 'package:brainwave/pages/onderwerpen/onderwerpen_desktop.dart';
+import 'package:brainwave/pages/secondpage/second_desktop.dart';
 import 'package:brainwave/pages/workshop1/workshop1.dart';
 import 'package:brainwave/pages/workshop1/workshop1_desktop.dart';
 import 'package:brainwave/pages/workshop2/workshop2_desktop.dart';
@@ -58,6 +60,7 @@ class HomePageDesktop extends StatelessWidget {
                         scrollToFeatures: scrollToFeatures,
                         scrollToHome: scrollToHome,
                       ),
+                      SecondpageDesktop(),
                       const Workshop1Desktop(),
                       const SizedBox(height: 100),
                       const HackationsDesktop(),
@@ -67,6 +70,7 @@ class HomePageDesktop extends StatelessWidget {
                       FeaturesDesktop(),
                       AfterfeaturesDesktop(),
                       FAQDesktop(),
+                      AfterFaqDesktop(),
                     ],
                   ),
                 ),

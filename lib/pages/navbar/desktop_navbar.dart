@@ -79,18 +79,15 @@ class _DesktopNavBarState extends State<DesktopNavBar>
             onTap: widget.scrollToHome,
             child: ProContainer(
               decoration: const BoxDecoration(
-                  // image: DecorationImage(
-                  //   image: AssetImage('assets/brainwave.png'),
-                  //   fit: BoxFit.contain,
-                  // ),
-                  ),
+                color: Colors.transparent,
+              ),
             ),
           ),
           navLogo(),
           ProRow(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              navButton('Onze diensten', widget.scrollToHome, 0),
+              navButton('Solutions', widget.scrollToHome, 0),
               MouseRegion(
                 onEnter: (_) => _toggleDropdown(true),
                 onExit: (_) => _toggleDropdown(false),
@@ -102,24 +99,14 @@ class _DesktopNavBarState extends State<DesktopNavBar>
                   ),
                 ),
               ),
-              navButton('Prijzen', widget.scrollToFeatures, 2),
-              navButton('Contact', widget.scrollToContact, 3),
+              navButton('Company', widget.scrollToFeatures, 2),
+              navButton('News', widget.scrollToContact, 3),
               //navButton('Login', login_launchURL, 4),
-              navButton('Blog', () {
-                Get.toNamed('/pricing');
-              }, 5),
+              navButton('Careers', () {}, 5),
             ],
           ),
           ProContainer(
             decoration: BoxDecoration(
-              // gradient: const LinearGradient(
-              //   colors: [
-              //     Colors.pinkAccent,
-              //     Colors.blueAccent,
-              //   ],
-              //   begin: Alignment.bottomLeft,
-              //   end: Alignment.topRight,
-              // ),
               borderRadius: BorderRadius.circular(20),
             ),
             height: 45,
@@ -134,11 +121,9 @@ class _DesktopNavBarState extends State<DesktopNavBar>
                   borderRadius: BorderRadius.circular(20),
                 ),
               ),
-              onPressed: () {
-                // showRequestDemoForm(context);
-              },
+              onPressed: () {},
               child: const ProText(
-                'Mails ons',
+                'Contact',
                 style: TextStyle(
                   color: Colors.blue,
                   fontWeight: FontWeight.normal,
@@ -224,14 +209,6 @@ class _DesktopNavBarState extends State<DesktopNavBar>
             ),
           ),
         ),
-        // const ProText(
-        //   'Profinix Technologies',
-        //   style: TextStyle(
-        //     fontSize: 20,
-        //     color: Colors.blue,
-        //     fontWeight: FontWeight.normal,
-        //   ),
-        // ),
       ],
     );
   }

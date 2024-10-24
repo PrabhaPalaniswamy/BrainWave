@@ -1,4 +1,5 @@
 import 'package:brainwave/utils/base_widgets.dart';
+import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -64,24 +65,10 @@ class _FrontDesktopState extends State<FrontDesktop>
     return Stack(
       children: [
         Positioned.fill(
-          // child: Image.asset(
-          //   'assets/background/frontpagebg.png',
-          //   fit: BoxFit.cover,
-          // ),
-          child: Container(),
-        ),
-        Positioned(
-          top: 0,
-          left: 0,
-          right: 0,
-          child: Container(
-              // child: DesktopNavBar(
-              //   scrollToContact: widget.scrollToContact,
-              //   scrollToFeatures: widget.scrollToFeatures,
-              //   scrollToHome: widget.scrollToHome, onNavItemTap: (int p1) {},
-              //   //scrollController: _scrollController,
-              // ),
-              ),
+          child: Image.asset(
+            'assets/images/frontpagebg.png',
+            fit: BoxFit.cover,
+          ),
         ),
         Container(
           height: 600,
@@ -93,14 +80,14 @@ class _FrontDesktopState extends State<FrontDesktop>
                 child: ScaleTransition(
                   scale: _scaleAnimation,
                   child: Container(
-                    padding: const EdgeInsets.only(bottom: 20.0),
+                    padding: const EdgeInsets.only(bottom: 10.0),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const SizedBox(height: 50),
-                        Center(
+                        const Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               // SizedBox(
                               //   width: 100,
@@ -114,14 +101,14 @@ class _FrontDesktopState extends State<FrontDesktop>
 
                               Expanded(
                                 child: Text(
-                                  'Maak je organisatie \nfuture-proof.',
+                                  'Transforming business, empowering people \nwith AI.',
                                   style: TextStyle(
-                                    color: Colors.indigo.shade900,
+                                    color: Colors.white,
                                     fontSize: 70,
                                     fontWeight: FontWeight.bold,
                                     height: 1.3,
                                   ),
-                                  textAlign: TextAlign.center,
+                                  textAlign: TextAlign.start,
                                 ),
                               ),
                             ],
@@ -129,17 +116,17 @@ class _FrontDesktopState extends State<FrontDesktop>
                         ),
                         const SizedBox(height: 20),
                         const ProText(
-                          "Ontdek hoe onze op maat gemaakte AI-trainingen en hackathons je team kunnen inspireren en klaarstomen voor de digitale uitdagingen van morgen.",
+                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit,\nsed do eiusmod tempor incididunt ut labore et dolore \nmagna aliqua. Ut enim ad minim venaim,",
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: Colors.white,
                             fontSize: 18,
                           ),
-                          textAlign: TextAlign.center,
+                          textAlign: TextAlign.start,
                         ),
                         const SizedBox(height: 40),
                         Center(
                           child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.start,
                             children: [
                               Container(
                                 height: 45,
@@ -148,28 +135,28 @@ class _FrontDesktopState extends State<FrontDesktop>
                                 ),
                                 child: ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
-                                    foregroundColor: Colors.white,
-                                    backgroundColor: Colors.transparent,
+                                    foregroundColor: Colors.cyan,
+                                    backgroundColor: Colors.cyan,
                                     textStyle: const TextStyle(fontSize: 16),
                                     padding: const EdgeInsets.symmetric(
                                         horizontal: 20),
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(1),
+                                      borderRadius: BorderRadius.circular(20),
                                       side: const BorderSide(
                                         color: Colors.black,
                                       ),
                                     ),
                                   ),
                                   onPressed: () {},
-                                  icon: const Icon(
-                                    Icons.arrow_downward_outlined,
-                                    color: Colors.white,
-                                  ),
-                                  label: const ProText(
-                                    'Kom meer te weten',
+                                  // icon: const Icon(
+                                  //   Icons.arrow_downward_outlined,
+                                  //   color: Colors.cyan,
+                                  // ),
+                                  label: ProText(
+                                    'See more',
                                     style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.normal),
+                                        color: BrainWave.primary,
+                                        fontWeight: FontWeight.bold),
                                   ),
                                 ),
                               ),

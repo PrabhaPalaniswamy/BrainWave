@@ -1,5 +1,6 @@
 import 'package:brainwave/pages/features/features_contents.dart';
 import 'package:brainwave/utils/base_widgets.dart';
+import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class FeaturesDesktop extends StatefulWidget {
@@ -56,9 +57,9 @@ class _FeaturesDesktopState extends State<FeaturesDesktop> {
                               Center(
                                 child: ProText(
                                   featurescontents[i]["title"],
-                                  style: const TextStyle(
+                                  style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    color: Colors.black,
+                                    color: BrainWave.primary,
                                     fontSize: 24,
                                   ),
                                   textAlign: TextAlign.center,
@@ -69,10 +70,10 @@ class _FeaturesDesktopState extends State<FeaturesDesktop> {
                                 featurescontents[i]["description"],
                                 overflow: TextOverflow.clip,
                                 textAlign: TextAlign.center,
-                                style: const TextStyle(
+                                style: TextStyle(
                                   fontWeight: FontWeight.normal,
                                   fontSize: 16,
-                                  color: Colors.black,
+                                  color: BrainWave.primary,
                                 ),
                               ),
                               const SizedBox(height: 10),

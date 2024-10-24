@@ -1,3 +1,4 @@
+import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -27,7 +28,7 @@ class AfterfeaturesDesktop extends StatelessWidget {
               EdgeInsets.symmetric(horizontal: screenWidth / 10, vertical: 20),
           child: Container(
             decoration: BoxDecoration(
-              color: Colors.blue,
+              color: Colors.indigoAccent,
               borderRadius: BorderRadius.circular(
                   20), // Background color for the container
             ),

@@ -2,12 +2,12 @@ import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class OnderwerpenDesktop extends StatelessWidget {
+class SecondpageDesktop extends StatelessWidget {
   // final VoidCallback scrollToContact;
   // final VoidCallback scrollToFeatures;
   // final VoidCallback scrollToHome;
 
-  OnderwerpenDesktop({
+  SecondpageDesktop({
     Key? key,
     // required this.scrollToContact,
     // required this.scrollToFeatures,
@@ -44,14 +44,14 @@ class OnderwerpenDesktop extends StatelessWidget {
                       const SizedBox(height: 50),
                       const Center(
                           child: Text(
-                        "ONDERWERPEN",
+                        "HOE WIJ WERKEN",
                         style: TextStyle(fontWeight: FontWeight.bold),
                       )),
                       const SizedBox(height: 30),
                       Center(
                         child: Expanded(
                           child: Text(
-                            'Versterk je zakelijk succes met \nde workshops van Brainwave Consultancy',
+                            'Verander de regels. Vorm de  Toekomst.',
                             style: TextStyle(
                               color: BrainWave.primary,
                               fontSize: 70,
@@ -65,7 +65,7 @@ class OnderwerpenDesktop extends StatelessWidget {
                       const SizedBox(height: 20),
                       const Center(
                         child: Text(
-                          "Verkrijg waardevolle trainingen op de volgende onderwerpen",
+                          "Werk samen met AI, data en digitale tools om de werkplek van morgen te creëren.",
                           style: TextStyle(
                             color: Colors.blueGrey,
                             fontSize: 18,

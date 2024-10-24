@@ -1,4 +1,5 @@
 import 'package:brainwave/utils/base_widgets.dart';
+import 'package:brainwave/utils/colors.dart';
 import 'package:brainwave/utils/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,8 +41,9 @@ Widget CommonPage(
           const SizedBox(width: 80),
           Expanded(
             child: Column(
-              crossAxisAlignment:
-                  imageLeft ? CrossAxisAlignment.start : CrossAxisAlignment.end,
+              crossAxisAlignment: imageLeft
+                  ? CrossAxisAlignment.start
+                  : CrossAxisAlignment.start,
               children: [
                 ProText(
                   s1.toUpperCase(),
@@ -50,13 +52,14 @@ Widget CommonPage(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
+                  textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 10),
                 ProText(
                   s2,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: WebColors.primary,
+                    color: BrainWave.primary,
                     fontSize: w / 30,
                     height: 1.2,
                     fontWeight: FontWeight.bold,
@@ -66,8 +69,8 @@ Widget CommonPage(
                 ProText(
                   s3,
                   textAlign: imageLeft ? TextAlign.left : TextAlign.right,
-                  style: const TextStyle(
-                    color: Colors.black,
+                  style: TextStyle(
+                    color: BrainWave.primary,
                     fontSize: 20,
                     height: 1.3,
                   ),

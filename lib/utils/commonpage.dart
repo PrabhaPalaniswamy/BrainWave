@@ -1,3 +1,4 @@
+import 'package:brainwave/utils/animated_button.dart'; // Import for AnimatedElevatedButton
 import 'package:brainwave/utils/base_widgets.dart';
 import 'package:brainwave/utils/colors.dart';
 import 'package:brainwave/utils/constants.dart';
@@ -13,7 +14,7 @@ Widget CommonPage(
   List<Map<String, dynamic>> buttons,
 ) {
   try {
-    double? w = Get.context?.width; // Safe check for width
+    double? w = Get.context?.width;
     if (w == null) {
       return Container(
         padding: const EdgeInsets.all(20),
@@ -24,7 +25,7 @@ Widget CommonPage(
     return Container(
       padding: EdgeInsets.symmetric(horizontal: w / 15, vertical: 10),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start, // Aligns items to the top
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           if (imageLeft)
             Expanded(
@@ -45,14 +46,21 @@ Widget CommonPage(
                   ? CrossAxisAlignment.start
                   : CrossAxisAlignment.start,
               children: [
-                ProText(
-                  s1.toUpperCase(),
-                  style: const TextStyle(
-                    color: Colors.pink,
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold,
+                ShaderMask(
+                  shaderCallback: (bounds) => const LinearGradient(
+                    colors: [Colors.pink, Colors.blue],
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                  ).createShader(bounds),
+                  child: ProText(
+                    s1.toUpperCase(),
+                    style: const TextStyle(
+                      fontSize: 20,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
                 ),
                 const SizedBox(height: 10),
                 ProText(
@@ -76,32 +84,18 @@ Widget CommonPage(
                   ),
                 ),
                 const SizedBox(height: 20),
-                // Create buttons dynamically based on the passed list
                 ...buttons.map((button) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 5),
-                      child: ProElevatedButton(
+                      child: AnimatedElevatedButton(
+                        onPressed: button['onPressed'] as void Function(),
+                        text: button['label'] as String,
+                        icon: Icons.arrow_outward,
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
                           shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: Colors.blue.shade800)),
-                        ),
-                        onPressed: button['onPressed'] as void Function(),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            ProText(
-                              button['label'] as String,
-                              style: TextStyle(
-                                  fontSize: 16, color: Colors.indigo.shade700),
-                            ),
-                            const SizedBox(width: 8),
-                            const Icon(
-                              Icons.arrow_outward_sharp,
-                              size: 24,
-                              color: Colors.blue,
-                            ),
-                          ],
+                            borderRadius: BorderRadius.circular(8),
+                            side: BorderSide(color: Colors.blue.shade800),
+                          ),
                         ),
                       ),
                     )),

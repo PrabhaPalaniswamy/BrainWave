@@ -1,4 +1,6 @@
+import 'package:brainwave/utils/animated_button.dart';
 import 'package:brainwave/utils/base_widgets.dart';
+import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -87,7 +89,7 @@ class _DesktopNavBarState extends State<DesktopNavBar>
           ProRow(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              navButton('Solutions', widget.scrollToHome, 0),
+              navButton('Onze Diensten', widget.scrollToHome, 0),
               MouseRegion(
                 onEnter: (_) => _toggleDropdown(true),
                 onExit: (_) => _toggleDropdown(false),
@@ -99,10 +101,10 @@ class _DesktopNavBarState extends State<DesktopNavBar>
                   ),
                 ),
               ),
-              navButton('Company', widget.scrollToFeatures, 2),
-              navButton('News', widget.scrollToContact, 3),
+              navButton('Over Ons', widget.scrollToFeatures, 2),
+              navButton('Blog', widget.scrollToContact, 3),
               //navButton('Login', login_launchURL, 4),
-              navButton('Careers', () {}, 5),
+              // navButton('Careers', () {}, 5),
             ],
           ),
           ProContainer(
@@ -110,26 +112,19 @@ class _DesktopNavBarState extends State<DesktopNavBar>
               borderRadius: BorderRadius.circular(20),
             ),
             height: 45,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                foregroundColor: Colors.indigo.shade900,
-                backgroundColor: Colors.transparent,
-                shadowColor: Colors.transparent,
-                textStyle: const TextStyle(fontSize: 16),
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(20),
-                ),
-              ),
-              onPressed: () {},
-              child: const ProText(
-                'Contact',
-                style: TextStyle(
-                  color: Colors.blue,
-                  fontWeight: FontWeight.normal,
-                ),
-              ),
-            ),
+            child: AnimatedElevatedButton(
+                onPressed: () {
+                  // Define what happens on button press
+                },
+                text: 'Plan een kennismaking',
+                icon: Icons.schedule,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                    side: BorderSide(color: Colors.blue.shade800),
+                  ),
+                )),
           ),
         ],
       ),
@@ -144,51 +139,42 @@ class _DesktopNavBarState extends State<DesktopNavBar>
         onExit: (_) => _toggleHover(false, index),
         child: GestureDetector(
           onTap: onPressed,
-          child: isHoveredList[index]
-              ? ShaderMask(
-                  shaderCallback: (Rect bounds) {
-                    return const LinearGradient(
-                      colors: <Color>[
-                        Colors.pinkAccent,
-                        Colors.blueAccent,
-                      ],
-                      begin: Alignment.topLeft,
-                      end: Alignment.bottomRight,
-                    ).createShader(bounds);
-                  },
-                  child: ProText(
+          child: ScaleTransition(
+            scale: Tween<double>(begin: 1.0, end: 1.1).animate(
+              CurvedAnimation(
+                parent: _animationController,
+                curve: Curves.easeInOut,
+              ),
+            ),
+            child: isHoveredList[index]
+                ? ShaderMask(
+                    shaderCallback: (Rect bounds) {
+                      return const LinearGradient(
+                        colors: <Color>[
+                          Colors.pinkAccent,
+                          Colors.blueAccent,
+                        ],
+                        begin: Alignment.topLeft,
+                        end: Alignment.bottomRight,
+                      ).createShader(bounds);
+                    },
+                    child: ProText(
+                      text,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.normal,
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                : ProText(
                     text,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 16,
-                      fontWeight: FontWeight.normal,
-                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.indigo.shade900,
                     ),
                   ),
-                )
-              : ProText(
-                  text,
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.indigo.shade900,
-                  ),
-                ),
-        ),
-      ),
-    );
-  }
-
-  Widget dropdownMenuItem(String text, VoidCallback onTap) {
-    return InkWell(
-      onTap: onTap,
-      child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
-        child: Text(
-          text,
-          style: const TextStyle(
-            fontSize: 16,
-            fontWeight: FontWeight.normal,
-            color: Colors.black,
           ),
         ),
       ),

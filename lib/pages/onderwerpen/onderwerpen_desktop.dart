@@ -1,3 +1,4 @@
+import 'package:brainwave/utils/base_widgets.dart';
 import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,11 +43,24 @@ class OnderwerpenDesktop extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 50),
-                      const Center(
-                          child: Text(
-                        "ONDERWERPEN",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
+                      Center(
+                        child: ShaderMask(
+                          shaderCallback: (bounds) => const LinearGradient(
+                            colors: [Colors.blue, Colors.purple],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ).createShader(bounds),
+                          child: const ProText(
+                            'ONDERWERPEN',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
+
                       const SizedBox(height: 30),
                       Center(
                         child: Expanded(
@@ -63,11 +77,11 @@ class OnderwerpenDesktop extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      const Center(
+                      Center(
                         child: Text(
                           "Verkrijg waardevolle trainingen op de volgende onderwerpen",
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: BrainWave.primary,
                             fontSize: 18,
                           ),
                           textAlign: TextAlign.center,

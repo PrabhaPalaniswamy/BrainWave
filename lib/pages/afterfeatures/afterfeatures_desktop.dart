@@ -14,13 +14,13 @@ class AfterfeaturesDesktop extends StatelessWidget {
     return Stack(
       children: [
         Positioned.fill(
-          child: Container(), // Background image placeholder
+          child: Container(),
         ),
         Positioned(
           top: 0,
           left: 0,
           right: 0,
-          child: Container(), // Navigation bar placeholder
+          child: Container(),
         ),
         Container(
           height: 400,
@@ -29,13 +29,11 @@ class AfterfeaturesDesktop extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: Colors.indigoAccent,
-              borderRadius: BorderRadius.circular(
-                  20), // Background color for the container
+              borderRadius: BorderRadius.circular(20),
             ),
             padding: const EdgeInsets.all(50.0),
             child: Row(
-              mainAxisAlignment:
-                  MainAxisAlignment.spaceBetween, // Align text and button
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

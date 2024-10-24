@@ -1,3 +1,4 @@
+import 'package:brainwave/utils/base_widgets.dart';
 import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,11 +43,23 @@ class SecondpageDesktop extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       const SizedBox(height: 50),
-                      const Center(
-                          child: Text(
-                        "HOE WIJ WERKEN",
-                        style: TextStyle(fontWeight: FontWeight.bold),
-                      )),
+                      Center(
+                        child: ShaderMask(
+                          shaderCallback: (bounds) => const LinearGradient(
+                            colors: [Colors.blue, Colors.purple],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
+                          ).createShader(bounds),
+                          child: const ProText(
+                            'HOE WIJ WERKEN',
+                            style: TextStyle(
+                                fontSize: 18,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold),
+                            textAlign: TextAlign.center,
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 30),
                       Center(
                         child: Expanded(

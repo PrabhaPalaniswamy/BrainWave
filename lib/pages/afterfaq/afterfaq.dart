@@ -1,4 +1,4 @@
-import 'package:brainwave/utils/base_widgets.dart';
+import 'package:brainwave/utils/animated_button.dart';
 import 'package:brainwave/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -64,11 +64,11 @@ class AfterFaqDesktop extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      const Center(
+                      Center(
                         child: Text(
                           "Benieuwd wat wij voor jou kunnen betekenen? Vraag vandaag nog een \nvrijblijvende offerte aan en vertel ons jouw specifieke wensen voor de\n training. Samen creëren we een oplossing op maat.",
                           style: TextStyle(
-                            color: Colors.blueGrey,
+                            color: BrainWave.primary,
                             fontSize: 18,
                           ),
                           textAlign: TextAlign.center,
@@ -76,21 +76,12 @@ class AfterFaqDesktop extends StatelessWidget {
                       ),
                       const SizedBox(height: 20),
                       Center(
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // Action for the button
-                          },
+                        child: AnimatedElevatedButton(
+                          onPressed: () {},
+                          text: 'Mails ons',
+                          icon: Icons.arrow_outward,
                           style: ElevatedButton.styleFrom(
-                              padding: const EdgeInsets.symmetric(
-                                  horizontal: 25, vertical: 15),
-                              textStyle: const TextStyle(fontSize: 20),
-                              backgroundColor: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8),
-                              )),
-                          child: const Text(
-                            'Mail ons',
-                            style: TextStyle(fontSize: 14),
+                            backgroundColor: Colors.transparent,
                           ),
                         ),
                       ),

@@ -47,6 +47,27 @@ class _FAQDesktopState extends State<FAQDesktop> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Center(
+            child: ShaderMask(
+              shaderCallback: (bounds) => const LinearGradient(
+                colors: [Colors.blue, Colors.purple],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ).createShader(bounds),
+              child: const ProText(
+                'FAQ',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+            ),
+          ),
+
+          const SizedBox(
+              height: 10), // Space between the additional text and heading
+
           // FAQ Heading
           Center(
             child: ProText(
@@ -58,30 +79,14 @@ class _FAQDesktopState extends State<FAQDesktop> {
               ),
             ),
           ),
-          const SizedBox(height: 20), // Adds space between heading and FAQ list
+          const SizedBox(height: 20), // Space after heading
 
-          // All Questions & Answers inside one container
+          // FAQ Contents
           Container(
-            padding: EdgeInsets.all(16), // Padding inside the container
-            // decoration: BoxDecoration(
-            //   color: Colors.white, // Background color of the container
-            //   borderRadius: BorderRadius.circular(10), // Rounded corners
-            //   boxShadow: [
-            //     BoxShadow(
-            //       color: Colors.grey.withOpacity(0.3), // Shadow color
-            //       blurRadius: 5, // Spread of the shadow
-            //       offset: Offset(0, 3), // Shadow position
-            //     ),
-            //   ],
-            //   border: Border.all(
-            //     color: BrainWave.primary.withOpacity(0.3), // Border color
-            //   ),
-            // ),
+            padding: EdgeInsets.all(16),
             child: ListView.builder(
-              shrinkWrap:
-                  true, // Ensures ListView takes minimum required height
-              physics:
-                  NeverScrollableScrollPhysics(), // Disable ListView's own scrolling
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
               itemCount: _faqs.length,
               itemBuilder: (context, index) {
                 return ExpansionTile(
